@@ -45,6 +45,10 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.ImageLocation = "";
             this.pictureBox1.Location = new System.Drawing.Point(175, 85);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(155, 153);
@@ -63,7 +67,7 @@
             this.button_okay.UseVisualStyleBackColor = true;
             this.button_okay.Click += new System.EventHandler(this.button_okay_Click);
             // 
-            // ErrorMessage_LoginPassword
+            // SelfMessageBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -74,7 +78,7 @@
             this.Controls.Add(this.label1);
             this.MaximumSize = new System.Drawing.Size(500, 370);
             this.MinimumSize = new System.Drawing.Size(500, 370);
-            this.Name = "ErrorMessage_LoginPassword";
+            this.Name = "SelfMessageBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "                               Внимание!";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

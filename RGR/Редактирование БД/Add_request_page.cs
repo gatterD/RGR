@@ -1,4 +1,5 @@
 ﻿using MaterialSkin.Controls;
+using RGR.Message;
 using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -52,6 +53,14 @@ namespace RGR
 
         private void button_add_Click(object sender, EventArgs e) //Кнопка "Создать"
         {
+            if(this.textBox_productivity.Text == "" || this.textBox_frostResistance.Text == "")
+            {
+                string pic = "C:\\Users\\admin\\Desktop\\ИС-31 Марцинкевич Е.С. Георгиева Д.О\\RGR\\RGR\\Images\\icons8-warning-50.png";
+                string conn = "C:\\Users\\admin\\Desktop\\ИС-31 Марцинкевич Е.С. Георгиева Д.О\\RGR\\RGR\\Resources\\windows-10-error-sound.wav";
+                SelfMessageBox selfM = new SelfMessageBox("Моростойкость и Урожайность должны быть введены.", conn, pic);
+                selfM.Show();
+                return;
+            }
             if (enter_checker.parent_and_frost_Checker(textBox_frostResistance.Text, textBox_number.Text, textBox_Pname.Text))
             { //Проверка требований к пользовательским данным
                 model.Name = textBox_name.Text.Trim(); //Название сорта

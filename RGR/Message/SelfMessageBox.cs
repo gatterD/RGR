@@ -26,6 +26,7 @@ namespace RGR.Message
             InitializeComponent();
             this.connectionWAV = conn;
             this.label1.Text = text;
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.Image = Image.FromFile(PicBoxConn);
             runWAV_sound();
         }
