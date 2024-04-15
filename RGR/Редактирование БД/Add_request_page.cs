@@ -15,6 +15,12 @@ namespace RGR
         public Add_request_page() //Инициализация по умолчанию
         {
             InitializeComponent();
+            this.textBox_name.MaxLength = 20;
+            this.textBox_author.MaxLength = 20;
+            this.textBox_number.MaxLength = 3;
+            this.textBox_productivity.MaxLength = 1;
+            this.textBox_frostResistance.MaxLength = 1;
+
         }
 
         public Add_request_page(Main_page page) //Инициализация со стартовой страницы

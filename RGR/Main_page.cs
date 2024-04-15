@@ -30,6 +30,7 @@ namespace RGR
             tips.SetToolTip(this.button_simple_search, "Поиск");
             tips.SetToolTip(this.button_add, "Добавить");
             tips.SetToolTip(this.button_advanced_search, "Расширенный поиск");
+            this.simple_search.MaxLength = 20;
 
         }
 

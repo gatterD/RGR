@@ -321,6 +321,7 @@
   <ItemGroup>
     <Content Include="Images\Admin24.png" />
     <Content Include="Images\Fon.png" />
+    <Content Include="Images\icons8-warning-50.png" />
     <Content Include="Images\main_picture24.png" />
     <Content Include="Images\main_picture280x100.png" />
     <Content Include="Images\Poisk24.png" />
