@@ -191,8 +191,16 @@ namespace RGR
                 == DialogResult.Yes)
             {
                 string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=C:\\Users\\admin\\Desktop\\ИС-31 Марцинкевич Е.С. Георгиева Д.О\\БД\\PlantRegister.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
-
-                string sqlExpression = "DELETE  FROM PlantTable WHERE CustomID='"+model.CustomID+"'";
+                string sqlExpression;
+                sqlExpression = "UPDATE PlantTable SET ParentVariety=NULL WHERE ParentVariety= '" + model.CustomID + "'";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sqlExpression, connection);
+                    int number = command.ExecuteNonQuery();
+                    Console.WriteLine("Обновлено объектов: {0}", number);
+                }
+                sqlExpression = "DELETE  FROM PlantTable WHERE CustomID='"+model.CustomID+"'";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -200,7 +208,7 @@ namespace RGR
                     int number = command.ExecuteNonQuery();
                     Console.WriteLine("Удалено объектов: {0}", number);
                 }
-
+                
                 main_page.Show();
                 this.Close();
 
