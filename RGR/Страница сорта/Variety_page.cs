@@ -243,30 +243,56 @@ namespace RGR
 
         private void button_download_Click(object sender, EventArgs e)
         {
-            Export helper = new Export("VarietyPage.docx");
-            MessageBox.Show(model.CustomID.ToString());
-            var items = new Dictionary<string, string>
-            {
-                {"CustomID",  model.CustomID.ToString()},
-                {"Name", model.Name },
-                {"Category", model.Category },
-                {"Author", model.Author },
-                {"ParentVariety", model.ParentVariety.ToString() },
-                {"ParentN", textBox_Pname.Text },
-                {"Productivity", model.Productivity.ToString() },
-                {"FrostResistance", model.FrostResistance.ToString() },
-                {"PestResistance", model.PestResistance },
-                {"DiseaseResistance", model.DiseaseResistance }
-            };
+            var query = "select * from PlantTable where CustomID LIKE '"+ model.CustomID + "'";
 
-            if(helper.process(items))
-                MessageBox.Show("Файл скачан успешно.", "Сообщение",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                MessageBox.Show("Ошибка скачивания.", "Сообщение",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var datatable = new DataTable();
+
+            queryReturnData(query, datatable);
+            ExportToWord(datatable);
         }
+        public DataTable queryReturnData(string query, DataTable dataTable)
+        {
+            string con = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=C:\\Users\\admin\\Desktop\\ИС-31 Марцинкевич Е.С. Георгиева Д.О\\БД\\PlantRegister.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+            SqlConnection myCon = new SqlConnection(con);
+            myCon.Open();
 
+            SqlDataAdapter SDA = new SqlDataAdapter(query, myCon);
+            SDA.SelectCommand.ExecuteNonQuery();
+
+            SDA.Fill(dataTable);
+            return dataTable;
+        }
+        private void ExportToWord(DataTable dataTable)
+        {
+            if (dataTable.Rows.Count > 0)
+            {
+                Microsoft.Office.Interop.Word.Application word = new Microsoft.Office.Interop.Word.Application();
+                word.Application.Documents.Add(Type.Missing);
+
+                Microsoft.Office.Interop.Word.Table table = word.Application.ActiveDocument.Tables.Add(word.Selection.Range, dataTable.Rows.Count + 1, dataTable.Columns.Count, Type.Missing, Type.Missing);
+                table.Borders.OutsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+                table.Borders.InsideLineStyle = Microsoft.Office.Interop.Word.WdLineStyle.wdLineStyleSingle;
+
+                for (int i = 0; i < dataTable.Columns.Count; i++)
+                {
+                    table.Cell(1, i + 1).Range.Text = dataTable.Columns[i].ColumnName;
+                }
+
+                for (int i = 0; i < dataTable.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dataTable.Columns.Count; j++)
+                    {
+                        table.Cell(i + 2, j + 1).Range.Text = dataTable.Rows[i][j].ToString();
+                    }
+                }
+
+                word.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("No data to export!");
+            }
+        }
         private void comboBox_category_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
