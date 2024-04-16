@@ -129,7 +129,7 @@
             // 
             // richTextBox_diseaseResistance
             // 
-            this.richTextBox_diseaseResistance.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.richTextBox_diseaseResistance.BackColor = System.Drawing.SystemColors.HighlightText;
             this.richTextBox_diseaseResistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.richTextBox_diseaseResistance.Location = new System.Drawing.Point(212, 198);
             this.richTextBox_diseaseResistance.Name = "richTextBox_diseaseResistance";
@@ -152,7 +152,7 @@
             // 
             // richTextBox_pestResistance
             // 
-            this.richTextBox_pestResistance.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.richTextBox_pestResistance.BackColor = System.Drawing.SystemColors.HighlightText;
             this.richTextBox_pestResistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.richTextBox_pestResistance.Location = new System.Drawing.Point(212, 120);
             this.richTextBox_pestResistance.Name = "richTextBox_pestResistance";
@@ -164,7 +164,7 @@
             // 
             // textBox_productivity
             // 
-            this.textBox_productivity.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox_productivity.BackColor = System.Drawing.SystemColors.HighlightText;
             this.textBox_productivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox_productivity.Location = new System.Drawing.Point(212, 40);
             this.textBox_productivity.Name = "textBox_productivity";
@@ -186,7 +186,7 @@
             // 
             // textBox_frostResistance
             // 
-            this.textBox_frostResistance.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox_frostResistance.BackColor = System.Drawing.SystemColors.HighlightText;
             this.textBox_frostResistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox_frostResistance.Location = new System.Drawing.Point(212, 74);
             this.textBox_frostResistance.Name = "textBox_frostResistance";
@@ -244,7 +244,7 @@
             // 
             // textBox_number
             // 
-            this.textBox_number.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox_number.BackColor = System.Drawing.SystemColors.HighlightText;
             this.textBox_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox_number.Location = new System.Drawing.Point(125, 35);
             this.textBox_number.Name = "textBox_number";
@@ -266,7 +266,7 @@
             // 
             // textBox_Pname
             // 
-            this.textBox_Pname.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox_Pname.BackColor = System.Drawing.SystemColors.HighlightText;
             this.textBox_Pname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox_Pname.Location = new System.Drawing.Point(125, 68);
             this.textBox_Pname.Name = "textBox_Pname";
@@ -322,7 +322,7 @@
             "Тисовые",
             "Гинкговые",
             "Цикадовые"});
-            this.comboBox_category.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.comboBox_category.BackColor = System.Drawing.SystemColors.HighlightText;
             this.comboBox_category.Enabled = false;
             this.comboBox_category.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox_category.FormattingEnabled = true;
@@ -372,7 +372,7 @@
             // 
             // textBox_name
             // 
-            this.textBox_name.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox_name.BackColor = System.Drawing.SystemColors.HighlightText;
             this.textBox_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox_name.Location = new System.Drawing.Point(125, 41);
             this.textBox_name.Name = "textBox_name";
@@ -384,7 +384,7 @@
             // 
             // textBox_author
             // 
-            this.textBox_author.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox_author.BackColor = System.Drawing.SystemColors.HighlightText;
             this.textBox_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox_author.Location = new System.Drawing.Point(125, 108);
             this.textBox_author.Name = "textBox_author";

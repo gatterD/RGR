@@ -27,7 +27,7 @@ namespace RGR
         {
             InitializeComponent();
         }
-
+        
         public Variety_page(Match_page page, Main_page m_page, PlantTable current)
         {
             InitializeComponent();
@@ -35,6 +35,7 @@ namespace RGR
             return_page = page;
             model = current;
             position = true;
+            set_max_lenght();
         }
 
         public Variety_page(Main_page m_page, PlantTable current, Variety_page r_page)
@@ -44,8 +45,16 @@ namespace RGR
             model = current;
             child_page = r_page;
             position = false;
+            set_max_lenght();
         }
-
+        private void set_max_lenght()
+        {
+            this.textBox_name.MaxLength = 20;
+            this.textBox_author.MaxLength = 20;
+            this.textBox_number.MaxLength = 3;
+            this.textBox_productivity.MaxLength = 3;
+            this.textBox_frostResistance.MaxLength = 1;
+        }
         private void глоссарийToolStripMenuItem_Click(object sender, EventArgs e)
         {
             info.glossary_message();
@@ -235,7 +244,7 @@ namespace RGR
         private void button_download_Click(object sender, EventArgs e)
         {
             Export helper = new Export("VarietyPage.docx");
-
+            MessageBox.Show(model.CustomID.ToString());
             var items = new Dictionary<string, string>
             {
                 {"CustomID",  model.CustomID.ToString()},

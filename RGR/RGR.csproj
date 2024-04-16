@@ -251,9 +251,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="VarietyPage.docx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="VarietyPage.docx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -16,20 +16,24 @@ namespace RGR
         public Add_request_page() //Инициализация по умолчанию
         {
             InitializeComponent();
-            this.textBox_name.MaxLength = 20;
-            this.textBox_author.MaxLength = 20;
-            this.textBox_number.MaxLength = 3;
-            this.textBox_productivity.MaxLength = 1;
-            this.textBox_frostResistance.MaxLength = 1;
+            set_max_lenght();
 
         }
 
         public Add_request_page(Main_page page) //Инициализация со стартовой страницы
         {
             InitializeComponent();
+            set_max_lenght();
             main_page = page;
         }
-
+        private void set_max_lenght()
+        {
+            this.textBox_name.MaxLength = 20;
+            this.textBox_author.MaxLength = 20;
+            this.textBox_number.MaxLength = 3;
+            this.textBox_productivity.MaxLength = 2;
+            this.textBox_frostResistance.MaxLength = 1;
+        }
         private void справкаToolStripMenuItem_Click(object sender, EventArgs e) //Кнопка "Справка"
         {
             info.reference_message();
