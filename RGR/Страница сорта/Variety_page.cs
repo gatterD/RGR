@@ -162,7 +162,7 @@ namespace RGR
                     + model.Productivity + " , FrostResistance= "
                     + model.FrostResistance + " , PestResistance= '"
                     + model.PestResistance + "' , DiseaseResistance= '"
-                    + model.PestResistance + "' WHERE CustomID= '" + model.CustomID + "'";
+                    + model.DiseaseResistance + "' WHERE CustomID= '" + model.CustomID + "'";
                 }
                 else
                 {
@@ -173,7 +173,7 @@ namespace RGR
                     + model.Productivity + " , FrostResistance= "
                     + model.FrostResistance + " , PestResistance= '"
                     + model.PestResistance + "' , DiseaseResistance= '"
-                    + model.PestResistance + "' WHERE CustomID= '" + model.CustomID + "'";
+                    + model.DiseaseResistance + "' WHERE CustomID= '" + model.CustomID + "'";
                 }
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
