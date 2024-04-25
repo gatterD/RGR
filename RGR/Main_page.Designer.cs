@@ -33,13 +33,13 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button_enter = new System.Windows.Forms.Button();
+            this.label_search = new System.Windows.Forms.Label();
             this.button_exit = new System.Windows.Forms.Button();
             this.button_add = new System.Windows.Forms.Button();
+            this.button_enter = new System.Windows.Forms.Button();
             this.button_advanced_search = new System.Windows.Forms.Button();
             this.button_simple_search = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label_search = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -83,19 +83,17 @@
             this.справкаToolStripMenuItem.Text = "Справка";
             this.справкаToolStripMenuItem.Click += new System.EventHandler(this.справкаToolStripMenuItem_Click);
             // 
-            // button_enter
+            // label_search
             // 
-            this.button_enter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.button_enter.Image = ((System.Drawing.Image)(resources.GetObject("button_enter.Image")));
-            this.button_enter.Location = new System.Drawing.Point(242, 269);
-            this.button_enter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button_enter.Name = "button_enter";
-            this.button_enter.Size = new System.Drawing.Size(187, 70);
-            this.button_enter.TabIndex = 5;
-            this.button_enter.Text = "Войти в режим администратора";
-            this.button_enter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button_enter.UseVisualStyleBackColor = true;
-            this.button_enter.Click += new System.EventHandler(this.button_enter_Click);
+            this.label_search.AutoSize = true;
+            this.label_search.BackColor = System.Drawing.Color.Transparent;
+            this.label_search.Cursor = System.Windows.Forms.Cursors.AppStarting;
+            this.label_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label_search.Location = new System.Drawing.Point(28, 86);
+            this.label_search.Name = "label_search";
+            this.label_search.Size = new System.Drawing.Size(68, 25);
+            this.label_search.TabIndex = 9;
+            this.label_search.Text = "Поиск";
             // 
             // button_exit
             // 
@@ -117,15 +115,28 @@
             // 
             this.button_add.Enabled = false;
             this.button_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_add.Image = global::RGR.Properties.Resources.Rezhim_redaktirovania24;
+            this.button_add.Image = global::RGR.Properties.Resources.Dobavlenie;
             this.button_add.Location = new System.Drawing.Point(394, 110);
             this.button_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_add.Name = "button_add";
             this.button_add.Size = new System.Drawing.Size(35, 35);
             this.button_add.TabIndex = 6;
-            this.button_add.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button_add.UseVisualStyleBackColor = true;
             this.button_add.Click += new System.EventHandler(this.button_add_Click);
+            // 
+            // button_enter
+            // 
+            this.button_enter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.button_enter.Image = ((System.Drawing.Image)(resources.GetObject("button_enter.Image")));
+            this.button_enter.Location = new System.Drawing.Point(242, 269);
+            this.button_enter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_enter.Name = "button_enter";
+            this.button_enter.Size = new System.Drawing.Size(187, 70);
+            this.button_enter.TabIndex = 5;
+            this.button_enter.Text = "Войти в режим администратора";
+            this.button_enter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button_enter.UseVisualStyleBackColor = true;
+            this.button_enter.Click += new System.EventHandler(this.button_enter_Click);
             // 
             // button_advanced_search
             // 
@@ -143,7 +154,7 @@
             // 
             this.button_simple_search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button_simple_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_simple_search.Image = global::RGR.Properties.Resources.Poisk24;
+            this.button_simple_search.Image = global::RGR.Properties.Resources.search2;
             this.button_simple_search.Location = new System.Drawing.Point(312, 110);
             this.button_simple_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_simple_search.Name = "button_simple_search";
@@ -161,18 +172,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(396, 127);
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
-            // 
-            // label_search
-            // 
-            this.label_search.AutoSize = true;
-            this.label_search.BackColor = System.Drawing.Color.Transparent;
-            this.label_search.Cursor = System.Windows.Forms.Cursors.AppStarting;
-            this.label_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label_search.Location = new System.Drawing.Point(28, 86);
-            this.label_search.Name = "label_search";
-            this.label_search.Size = new System.Drawing.Size(68, 25);
-            this.label_search.TabIndex = 9;
-            this.label_search.Text = "Поиск";
             // 
             // Main_page
             // 

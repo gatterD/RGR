@@ -278,7 +278,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.groupBox1.BackgroundImage = global::RGR.Properties.Resources.Fon;
+            this.groupBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox1.BackgroundImage")));
             this.groupBox1.Controls.Add(this.label_name);
             this.groupBox1.Controls.Add(this.comboBox_category);
             this.groupBox1.Controls.Add(this.label2);

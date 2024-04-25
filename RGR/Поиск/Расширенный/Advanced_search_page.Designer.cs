@@ -98,7 +98,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.groupBox2.BackgroundImage = global::RGR.Properties.Resources.Fon;
+            this.groupBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox2.BackgroundImage")));
             this.groupBox2.Controls.Add(this.label_number);
             this.groupBox2.Controls.Add(this.textBox_number);
             this.groupBox2.Controls.Add(this.label_Pname);
@@ -169,7 +169,7 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.groupBox3.BackgroundImage = global::RGR.Properties.Resources.Fon;
+            this.groupBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox3.BackgroundImage")));
             this.groupBox3.Controls.Add(this.richTextBox_diseaseResistance);
             this.groupBox3.Controls.Add(this.label_productivity);
             this.groupBox3.Controls.Add(this.richTextBox_pestResistance);

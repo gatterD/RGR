@@ -84,20 +84,14 @@ namespace RGR
                 model.DiseaseResistance = richTextBox_diseaseResistance.Text.Trim(); //Устойчивость к болезням
 
                 string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=C:\\Users\\admin\\Desktop\\ИС-31 Марцинкевич Е.С. Георгиева Д.О\\БД\\PlantRegister.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+                string zs = model.ParentVariety != null ? Convert.ToString(model.ParentVariety) : "NULL";
+
 
                 string sqlExpression;
-                if (model.ParentVariety != null)
-                {
-                    sqlExpression = "INSERT INTO PlantTable (Name, Category, Author, ParentVariety, Productivity, FrostResistance, PestResistance, DiseaseResistance) " +
-                        "VALUES ('" + model.Name + "', '" + model.Category + "', '" + model.Author + "', " + model.ParentVariety + ", " + model.Productivity + ", " +
+                sqlExpression = "INSERT INTO PlantTable (Name, Category, Author, ParentVariety, Productivity, FrostResistance, PestResistance, DiseaseResistance) " +
+                        "VALUES ('" + model.Name + "', '" + model.Category + "', '" + model.Author + "', " + zs + ", " + model.Productivity + ", " +
                         "" + model.FrostResistance + ", '" + model.PestResistance + "', '" + model.DiseaseResistance + "')";
-                }
-                else
-                {
-                    sqlExpression = "INSERT INTO PlantTable (Name, Category, Author, ParentVariety, Productivity, FrostResistance, PestResistance, DiseaseResistance) " +
-                        "VALUES ('" + model.Name + "', '" + model.Category + "', '" + model.Author + "', NULL, " + model.Productivity + ", " +
-                        "" + model.FrostResistance + ", '" + model.PestResistance + "', '" + model.DiseaseResistance + "')";
-                }
+
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {

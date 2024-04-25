@@ -151,31 +151,18 @@ namespace RGR
                 model.DiseaseResistance = richTextBox_diseaseResistance.Text.Trim(); //Устойчивость к болезням
 
                 string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=C:\\Users\\admin\\Desktop\\ИС-31 Марцинкевич Е.С. Георгиева Д.О\\БД\\PlantRegister.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+                string zs = model.ParentVariety != null ? Convert.ToString(model.ParentVariety) : "NULL";
 
                 string sqlExpression;
-                if (model.ParentVariety != null)
-                {
-                    sqlExpression = "UPDATE PlantTable SET Name= '"
+                sqlExpression = "UPDATE PlantTable SET Name= '"
                     + model.Name + "' , Category= '"
-                    + model.Category + "' , Author= '"
-                    + model.Author + "' , ParentVariety='"
-                    + model.ParentVariety + "', Productivity= "
+                    + model.Category + "' , Author= '" 
+                    + model.Author + "' , ParentVariety="
+                    + zs + " , Productivity= "
                     + model.Productivity + " , FrostResistance= "
                     + model.FrostResistance + " , PestResistance= '"
                     + model.PestResistance + "' , DiseaseResistance= '"
                     + model.DiseaseResistance + "' WHERE CustomID= '" + model.CustomID + "'";
-                }
-                else
-                {
-                    sqlExpression = "UPDATE PlantTable SET Name= '"
-                    + model.Name + "' , Category= '"
-                    + model.Category + "' , Author= '"
-                    + model.Author + "' , ParentVariety=NULL , Productivity= "
-                    + model.Productivity + " , FrostResistance= "
-                    + model.FrostResistance + " , PestResistance= '"
-                    + model.PestResistance + "' , DiseaseResistance= '"
-                    + model.DiseaseResistance + "' WHERE CustomID= '" + model.CustomID + "'";
-                }
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {

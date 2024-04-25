@@ -118,32 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Rasshirenny_poisk" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Rasshirenny_poisk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Vykhod24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Vykhod24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Poisk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Poisk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Rezhim_redaktirovania" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Rezhim_redaktirovania.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="3x1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\3x.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Poisk24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Poisk24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Rezhim_redaktirovania24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Rezhim_redaktirovania24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-exit-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-exit-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Rasshirenny_poisk24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Rasshirenny_poisk24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="3x (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\3x (1).ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,7 +127,40 @@
   <data name="3x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\3x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Rasshirenny_poisk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rasshirenny_poisk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Poisk24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Poisk24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Fon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Fon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Vykhod24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Vykhod24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dobavlenie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Dobavlenie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rezhim_redaktirovania24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Rezhim_redaktirovania24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="3x1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3x.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rasshirenny_poisk24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Rasshirenny_poisk24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rezhim_redaktirovania" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rezhim_redaktirovania.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\search2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-exit-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-exit-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Fon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
