@@ -6,12 +6,15 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using System.Windows.Forms;
+
     public class Changing : Request
     {
         private PlantTable model = new PlantTable(); //Поле-кортеж базы данных
         public Changing(string Name, string Category, string Author, string ParentVariety, string Productivity,
-            string FrostResistance, string PestResistance, string DiseaseResistance)
+            string FrostResistance, string PestResistance, string DiseaseResistance, Int32 CustID)
         {
+            model.CustomID = CustID;
             model.Name = Name; //Название сорта
             model.Category = Category; //Категория сорта
             model.Author = Author; //Автор сорка

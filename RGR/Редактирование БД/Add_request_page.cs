@@ -1,6 +1,6 @@
 ﻿using MaterialSkin.Controls;
 using RGR.Message;
-using RGR.Редактирование_БД.Классы;
+using RGR;
 using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;

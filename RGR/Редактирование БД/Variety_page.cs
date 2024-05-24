@@ -132,7 +132,7 @@ namespace RGR
             { //Проверка требований к пользовательским данным
                 chan_var = new Changing(textBox_name.Text.Trim(), comboBox_category.Text.Trim(), textBox_author.Text.Trim(),
                     textBox_number.Text, textBox_productivity.Text, textBox_frostResistance.Text, richTextBox_pestResistance.Text.Trim(),
-                    richTextBox_diseaseResistance.Text.Trim());
+                    richTextBox_diseaseResistance.Text.Trim(), model.CustomID);
                 chan_var.change_sort();
 
                 main_page.Show();
