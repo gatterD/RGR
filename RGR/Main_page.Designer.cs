@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_page));
-            this.simple_search = new System.Windows.Forms.TextBox();
+            this.textBox_simple_search = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,17 +44,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // simple_search
+            // textBox_simple_search
             // 
-            this.simple_search.BackColor = System.Drawing.Color.YellowGreen;
-            this.simple_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.simple_search.Location = new System.Drawing.Point(33, 113);
-            this.simple_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.simple_search.Name = "simple_search";
-            this.simple_search.Size = new System.Drawing.Size(273, 26);
-            this.simple_search.TabIndex = 0;
-            this.simple_search.KeyDown += new System.Windows.Forms.KeyEventHandler(this.simple_search_Enter);
-            this.simple_search.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.simple_search_KeyPress);
+            this.textBox_simple_search.BackColor = System.Drawing.Color.YellowGreen;
+            this.textBox_simple_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_simple_search.Location = new System.Drawing.Point(33, 113);
+            this.textBox_simple_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox_simple_search.Name = "textBox_simple_search";
+            this.textBox_simple_search.Size = new System.Drawing.Size(273, 26);
+            this.textBox_simple_search.TabIndex = 0;
+            this.textBox_simple_search.KeyDown += new System.Windows.Forms.KeyEventHandler(this.simple_search_Enter);
+            this.textBox_simple_search.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.simple_search_KeyPress);
             // 
             // menuStrip1
             // 
@@ -71,13 +71,15 @@
             // 
             // выходToolStripMenuItem
             // 
+            this.выходToolStripMenuItem.Font = new System.Drawing.Font("Comic Sans MS", 9F);
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
+            this.справкаToolStripMenuItem.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
             this.справкаToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
             this.справкаToolStripMenuItem.Text = "Справка";
@@ -88,16 +90,16 @@
             this.label_search.AutoSize = true;
             this.label_search.BackColor = System.Drawing.Color.Transparent;
             this.label_search.Cursor = System.Windows.Forms.Cursors.AppStarting;
-            this.label_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label_search.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_search.Location = new System.Drawing.Point(28, 86);
             this.label_search.Name = "label_search";
-            this.label_search.Size = new System.Drawing.Size(68, 25);
+            this.label_search.Size = new System.Drawing.Size(75, 28);
             this.label_search.TabIndex = 9;
             this.label_search.Text = "Поиск";
             // 
             // button_exit
             // 
-            this.button_exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.button_exit.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_exit.Image = global::RGR.Properties.Resources.Vykhod24;
             this.button_exit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button_exit.Location = new System.Drawing.Point(33, 269);
@@ -126,7 +128,7 @@
             // 
             // button_enter
             // 
-            this.button_enter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.button_enter.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_enter.Image = ((System.Drawing.Image)(resources.GetObject("button_enter.Image")));
             this.button_enter.Location = new System.Drawing.Point(242, 269);
             this.button_enter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -185,7 +187,7 @@
             this.Controls.Add(this.button_enter);
             this.Controls.Add(this.button_advanced_search);
             this.Controls.Add(this.button_simple_search);
-            this.Controls.Add(this.simple_search);
+            this.Controls.Add(this.textBox_simple_search);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pictureBox1);
             this.Cursor = System.Windows.Forms.Cursors.AppStarting;
@@ -207,7 +209,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox simple_search;
+        private System.Windows.Forms.TextBox textBox_simple_search;
         private System.Windows.Forms.Button button_simple_search;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;

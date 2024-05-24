@@ -20,14 +20,20 @@ namespace RGR.Вход.Регистрация
         public Registration()
         {
             InitializeComponent();
+            set_max_lenght();
         }
 
         public Registration(Autorisation client)
         {
             InitializeComponent();
+            set_max_lenght();
             auto_reg = client;
         }
-
+        private void set_max_lenght()
+        {
+            this.textBox_login.MaxLength = 20;
+            this.textBox_pasword.MaxLength = 20;
+        }
         private void button_cancel_Click(object sender, EventArgs e)
         {
             auto_reg.Show();

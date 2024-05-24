@@ -148,6 +148,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PlantRegisterDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Вход\Вход в режим администратора\EntAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Вход\Вход в режим администратора\EntAdmin.Designer.cs">
+      <DependentUpon>EntAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Вход\Регистрация\Registration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +209,9 @@
     </Compile>
     <EmbeddedResource Include="Message\SelfMessageBox.resx">
       <DependentUpon>SelfMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Вход\Вход в режим администратора\EntAdmin.resx">
+      <DependentUpon>EntAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Вход\Регистрация\Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
@@ -317,6 +326,7 @@
     <None Include="Resources\icons8-exit-48.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\3x.png" />
     <Content Include="Images\Admin24.png" />
     <Content Include="Images\Dobavlenie.png" />
     <Content Include="Images\Fon.png" />

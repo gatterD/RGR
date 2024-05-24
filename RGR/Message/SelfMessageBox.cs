@@ -21,7 +21,7 @@ namespace RGR.Message
         }
         public SelfMessageBox(string text = "Информация", 
             string conn = "C:\\Users\\admin\\Desktop\\ИС-31 Марцинкевич Е.С. Георгиева Д.О\\RGR\\RGR\\Resources\\windows-10-error-sound.wav",
-            string PicBoxConn = "C:\\Users\\admin\\Desktop\\ИС-31 Марцинкевич Е.С. Георгиева Д.О\\RGR\\RGR\\Resources\\3x.png")
+            string PicBoxConn = "C:\\Users\\admin\\Desktop\\ИС-31 Марцинкевич Е.С. Георгиева Д.О\\RGR\\RGR\\Images\\icons8-warning-50.png")
         {
             InitializeComponent();
             this.connectionWAV = conn;

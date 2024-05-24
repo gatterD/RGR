@@ -26,7 +26,13 @@ namespace RGR
         public Autorisation()
         {
             InitializeComponent();
+            set_max_lenght();
             main_page = new Main_page();
+        }
+        private void set_max_lenght()
+        {
+            this.textBox_login.MaxLength = 20;
+            this.textBox_pasword.MaxLength = 20;
         }
         public bool result_search_log_pas()
         {
@@ -74,7 +80,8 @@ namespace RGR
             if (result_search_log_pas())
             {
                 main_page.admin_mode = result_search_adm();
-
+                main_page.get_acc_name(this.textBox_login.Text); 
+                
                 main_page.Show();
                 this.Hide();
 
@@ -95,7 +102,8 @@ namespace RGR
 
                 string sound = @"C:\Users\admin\Desktop\ИС-31 Марцинкевич Е.С. Георгиева Д.О.\RGR\RGR\Resources\goofy-ahh-laugh-meme.wav";
                 string text = "Вы ввели неправильный логин или пароль!\r\nВведите информацию заново, проверив правильность введенных вами данных";
-                SelfMessageBox ErrorPage = new SelfMessageBox(text, sound);
+                string image = "C:\\Users\\admin\\Desktop\\ИС-31 Марцинкевич Е.С. Георгиева Д.О\\RGR\\RGR\\Images\\3x.png";
+                SelfMessageBox ErrorPage = new SelfMessageBox(text, sound,image);
                 ErrorPage.Show();
 
                 textBox_login.Text = "";
