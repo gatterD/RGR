@@ -22,6 +22,8 @@ namespace RGR
         private Match_page return_page;
         private PlantTable model;
         private Variety_page child_page;
+        private Changing chan_var;
+        private Delete_request del_sort_tr;
         private bool position;
 
         public Variety_page()
@@ -128,49 +130,10 @@ namespace RGR
         {
             if (enter_checker.parent_and_frost_Checker(textBox_frostResistance.Text, textBox_number.Text, textBox_Pname.Text))
             { //Проверка требований к пользовательским данным
-                model.Name = textBox_name.Text.Trim(); //Название сорта
-                model.Category = comboBox_category.Text.Trim(); //Категория сорта
-                model.Author = textBox_author.Text.Trim(); //Автор сорка
-
-                if (textBox_number.Text.Length != 0) //Проверка на пустое поле
-                    model.ParentVariety = Convert.ToInt32(textBox_number.Text); //Индекс родительского сорта
-                else
-                    model.ParentVariety = null;
-
-                if (textBox_productivity.Text.Length != 0) //Проверка на пустое поле
-                    model.Productivity = Convert.ToInt32(textBox_productivity.Text); //Урожайность
-                else
-                    model.Productivity = null;
-
-                if (textBox_frostResistance.Text.Length != 0) //Проверка на пустое поле
-                    model.FrostResistance = Convert.ToInt32(textBox_frostResistance.Text); //Морозостойкость
-                else
-                    model.FrostResistance = null;
-
-                model.PestResistance = richTextBox_pestResistance.Text.Trim(); //Устойчивость к вредителям
-                model.DiseaseResistance = richTextBox_diseaseResistance.Text.Trim(); //Устойчивость к болезням
-
-                string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=C:\\Users\\admin\\Desktop\\ИС-31 Марцинкевич Е.С. Георгиева Д.О\\БД\\PlantRegister.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
-                string zs = model.ParentVariety != null ? Convert.ToString(model.ParentVariety) : "NULL";
-
-                string sqlExpression;
-                sqlExpression = "UPDATE PlantTable SET Name= '"
-                    + model.Name + "' , Category= '"
-                    + model.Category + "' , Author= '" 
-                    + model.Author + "' , ParentVariety="
-                    + zs + " , Productivity= "
-                    + model.Productivity + " , FrostResistance= "
-                    + model.FrostResistance + " , PestResistance= '"
-                    + model.PestResistance + "' , DiseaseResistance= '"
-                    + model.DiseaseResistance + "' WHERE CustomID= '" + model.CustomID + "'";
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    int number = command.ExecuteNonQuery();
-                    Console.WriteLine("Обновлено объектов: {0}", number);
-                }
+                chan_var = new Changing(textBox_name.Text.Trim(), comboBox_category.Text.Trim(), textBox_author.Text.Trim(),
+                    textBox_number.Text, textBox_productivity.Text, textBox_frostResistance.Text, richTextBox_pestResistance.Text.Trim(),
+                    richTextBox_diseaseResistance.Text.Trim());
+                chan_var.change_sort();
 
                 main_page.Show();
                 return_page.Close();
@@ -187,24 +150,8 @@ namespace RGR
                 "Предупреждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question) 
                 == DialogResult.Yes)
             {
-                string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=C:\\Users\\admin\\Desktop\\ИС-31 Марцинкевич Е.С. Георгиева Д.О\\БД\\PlantRegister.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
-                string sqlExpression;
-                sqlExpression = "UPDATE PlantTable SET ParentVariety=NULL WHERE ParentVariety= '" + model.CustomID + "'";
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    int number = command.ExecuteNonQuery();
-                    Console.WriteLine("Обновлено объектов: {0}", number);
-                }
-                sqlExpression = "DELETE  FROM PlantTable WHERE CustomID='"+model.CustomID+"'";
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    int number = command.ExecuteNonQuery();
-                    Console.WriteLine("Удалено объектов: {0}", number);
-                }
+                del_sort_tr = new Delete_request(model);
+                del_sort_tr.del_sort();
                 
                 main_page.Show();
                 this.Close();

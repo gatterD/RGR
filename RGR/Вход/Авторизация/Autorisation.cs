@@ -21,7 +21,7 @@ namespace RGR
         private Main_page main_page;
         private AutoRegis client = new AutoRegis();
         private Registration reg;
-
+        private Autorization autoBD = new Autorization();
 
         public Autorisation()
         {
@@ -36,7 +36,9 @@ namespace RGR
         }
         public bool result_search_log_pas()
         {
-            string filter = "SELECT COUNT(*) FROM Autorization WHERE Name LIKE '" + textBox_login.Text + "' and Password LIKE '" + textBox_pasword.Text + "'";
+            autoBD.Name = textBox_login.Text;
+            autoBD.Password = textBox_pasword.Text;
+            string filter = "SELECT COUNT(*) FROM Autorization WHERE Name LIKE '" + autoBD.Name + "' and Password LIKE '" + autoBD.Password + "'";
             SqlCommand command = new SqlCommand(filter, client.connection);
             client.connection.Open();
             int UserCount = (int) command.ExecuteScalar();
@@ -53,7 +55,9 @@ namespace RGR
         }
         public bool result_search_adm()
         {
-            string filter = "SELECT COUNT(*) FROM Autorization WHERE Name LIKE '" + textBox_login.Text + "' and Password LIKE '" + textBox_pasword.Text + "' and admin_mode LIKE 'True'";
+            autoBD.Name = textBox_login.Text;
+            autoBD.Password = textBox_pasword.Text;
+            string filter = "SELECT COUNT(*) FROM Autorization WHERE Name LIKE '" + autoBD.Name + "' and Password LIKE '" + autoBD.Password + "' and admin_mode LIKE 'True'";
             SqlCommand command = new SqlCommand(filter, client.connection);
             client.connection.Open();
             

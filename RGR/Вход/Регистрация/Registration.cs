@@ -17,6 +17,7 @@ namespace RGR.Вход.Регистрация
     {
         private Autorisation auto_reg;
         private AutoRegis clientAutoReg = new AutoRegis();
+        private Autorization autoBD = new Autorization();
         public Registration()
         {
             InitializeComponent();
@@ -58,7 +59,9 @@ namespace RGR.Вход.Регистрация
         }
         public bool result_search_log_pas()
         {
-            string filter = "SELECT COUNT(*) FROM Autorization WHERE Name LIKE '" + textBox_login.Text + "'";
+            autoBD.Name = textBox_login.Text;
+            autoBD.Password = textBox_pasword.Text;
+            string filter = "SELECT COUNT(*) FROM Autorization WHERE Name LIKE '" + autoBD.Name + "'";
             SqlCommand command = new SqlCommand(filter, clientAutoReg.connection);
             clientAutoReg.connection.Open();
             int UserCount = (int)command.ExecuteScalar();
@@ -75,9 +78,11 @@ namespace RGR.Вход.Регистрация
         }
         private void add_new_user()
         {
+            autoBD.Name = textBox_login.Text;
+            autoBD.Password = textBox_pasword.Text;
             string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=C:\\Users\\admin\\Desktop\\ИС-31 Марцинкевич Е.С. Георгиева Д.О\\БД\\PlantRegister.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
             string sqlExpression = "INSERT INTO Autorization (Name, Password, admin_mode) " +
-                        "VALUES ('" + textBox_login.Text + "', '" + textBox_pasword.Text + "', 'False')";
+                        "VALUES ('" + autoBD.Name + "', '" + autoBD.Password + "', 'False')";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();

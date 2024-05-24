@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace RGR
 {
-    public class Parent_request : Search
+    public class Parent_request : Request
     {
         private string parent_index;
         private DataTable data_table;

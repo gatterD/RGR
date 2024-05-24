@@ -142,6 +142,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="БД\Autorization.cs" />
     <Compile Include="Вспомогательное\Messages.cs" />
     <Compile Include="PlantRegisterDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -182,7 +183,6 @@
       <DependentUpon>Add_request_page.cs</DependentUpon>
     </Compile>
     <Compile Include="БД\PlantTable.cs" />
-    <Compile Include="БД\PlantVarietyModel.cs" />
     <Compile Include="Вход\AutoRegis.cs" />
     <Compile Include="Вход\Авторизация\Autorisation.cs">
       <SubType>Form</SubType>
@@ -199,12 +199,16 @@
     <Compile Include="Register_controller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Вспомогательное\Checkers.cs" />
-    <Compile Include="Страница сорта\Export.cs" />
-    <Compile Include="Страница сорта\Parent_request.cs" />
-    <Compile Include="Страница сорта\Variety_page.cs">
+    <Compile Include="Редактирование БД\Классы\Add_request.cs" />
+    <Compile Include="Редактирование БД\Классы\Changing.cs" />
+    <Compile Include="Редактирование БД\Классы\Delete_request.cs" />
+    <Compile Include="Редактирование БД\Классы\Export.cs" />
+    <Compile Include="Редактирование БД\Классы\Parent_request.cs" />
+    <Compile Include="Редактирование БД\Классы\Request.cs" />
+    <Compile Include="Редактирование БД\Variety_page.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Страница сорта\Variety_page.Designer.cs">
+    <Compile Include="Редактирование БД\Variety_page.Designer.cs">
       <DependentUpon>Variety_page.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Message\SelfMessageBox.resx">
@@ -236,7 +240,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Страница сорта\Variety_page.resx">
+    <EmbeddedResource Include="Редактирование БД\Variety_page.resx">
       <DependentUpon>Variety_page.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
