@@ -19,9 +19,8 @@ namespace RGR
     public partial class Autorisation : MaterialForm
     {
         private Main_page main_page;
-        private AutoRegis client = new AutoRegis();
         private Registration reg;
-        private Autorization autoBD = new Autorization();
+        private AutorisationClass AuCl;
 
         public Autorisation()
         {
@@ -36,42 +35,14 @@ namespace RGR
         }
         public bool result_search_log_pas()
         {
-            autoBD.Name = textBox_login.Text;
-            autoBD.Password = textBox_pasword.Text;
-            string filter = "SELECT COUNT(*) FROM Autorization WHERE Name LIKE '" + autoBD.Name + "' and Password LIKE '" + autoBD.Password + "'";
-            SqlCommand command = new SqlCommand(filter, client.connection);
-            client.connection.Open();
-            int UserCount = (int) command.ExecuteScalar();
-            if (UserCount > 0)
-            {
-                client.connection.Close();
-                return true;
-            }
-            else
-            {
-                client.connection.Close();
-                return false;
-            }
+            AuCl = new AutorisationClass(textBox_login.Text, textBox_pasword.Text);
+            return AuCl.autorization_oper_pas();
         }
         public bool result_search_adm()
         {
-            autoBD.Name = textBox_login.Text;
-            autoBD.Password = textBox_pasword.Text;
-            string filter = "SELECT COUNT(*) FROM Autorization WHERE Name LIKE '" + autoBD.Name + "' and Password LIKE '" + autoBD.Password + "' and admin_mode LIKE 'True'";
-            SqlCommand command = new SqlCommand(filter, client.connection);
-            client.connection.Open();
+            AuCl = new AutorisationClass(textBox_login.Text, textBox_pasword.Text);
+            return AuCl.autorization_search_adm();
             
-            int admRights = (int)command.ExecuteScalar();
-            if (admRights > 0)
-            {
-                client.connection.Close();
-                return true;
-            }
-            else
-            {
-                client.connection.Close();
-                return false;
-            }
         }
         private void button_cancel_Click(object sender, EventArgs e)
         {
@@ -115,10 +86,6 @@ namespace RGR
             }
         }
 
-        private void Enter_administrator_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void transfer_cursor_enter(object sender, KeyEventArgs e)
         {

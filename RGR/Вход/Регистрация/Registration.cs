@@ -1,5 +1,8 @@
-﻿using MaterialSkin.Controls;
-using MySqlX.XDevAPI;
+﻿using MaterialSkin;
+using MaterialSkin.Controls;
+using MySqlX.XDevAPI.Common;
+using RGR.Message;
+using RGR.Вход.Регистрация;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,8 +19,7 @@ namespace RGR.Вход.Регистрация
     public partial class Registration : MaterialForm
     {
         private Autorisation auto_reg;
-        private AutoRegis clientAutoReg = new AutoRegis();
-        private Autorization autoBD = new Autorization();
+        private RegistrationClass Reg_var;
         public Registration()
         {
             InitializeComponent();
@@ -59,41 +61,10 @@ namespace RGR.Вход.Регистрация
         }
         public bool result_search_log_pas()
         {
-            autoBD.Name = textBox_login.Text;
-            autoBD.Password = textBox_pasword.Text;
-            string filter = "SELECT COUNT(*) FROM Autorization WHERE Name LIKE '" + autoBD.Name + "'";
-            SqlCommand command = new SqlCommand(filter, clientAutoReg.connection);
-            clientAutoReg.connection.Open();
-            int UserCount = (int)command.ExecuteScalar();
-            if (UserCount > 0)
-            {
-                clientAutoReg.connection.Close();
-                return true;
-            }
-            else
-            {
-                clientAutoReg.connection.Close();
-                return false;
-            }
+            Reg_var = new RegistrationClass(textBox_login.Text, textBox_pasword.Text);
+            return Reg_var.registration_oper_pas();
         }
-        private void add_new_user()
-        {
-            autoBD.Name = textBox_login.Text;
-            autoBD.Password = textBox_pasword.Text;
-            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=C:\\Users\\admin\\Desktop\\ИС-31 Марцинкевич Е.С. Георгиева Д.О\\БД\\PlantRegister.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
-            string sqlExpression = "INSERT INTO Autorization (Name, Password, admin_mode) " +
-                        "VALUES ('" + autoBD.Name + "', '" + autoBD.Password + "', 'False')";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(sqlExpression, connection);
-                int number = command.ExecuteNonQuery();
-                Console.WriteLine("Добавлено объектов: {0}", number);
-            }
-            Console.Read();
-            MessageBox.Show("Пользователь успешно зарегистрирован.", "Пользователь зарегистрирован.",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+        
         private void button_registration_Click(object sender, EventArgs e)
         {
             if(result_search_log_pas())
@@ -116,7 +87,8 @@ namespace RGR.Вход.Регистрация
                     if(MessageBox.Show("Вы не ввели пароль, уверены что хотите продолжить регистрацию?", "Вы уверены?", 
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        add_new_user();
+                        Reg_var = new RegistrationClass(textBox_login.Text, textBox_pasword.Text);
+                        Reg_var.adding_new_user();
                         auto_reg.Show();
                         this.Close();
                     }
@@ -128,7 +100,8 @@ namespace RGR.Вход.Регистрация
                 }
                 else
                 {
-                    add_new_user();
+                    Reg_var = new RegistrationClass(textBox_login.Text, textBox_pasword.Text);
+                    Reg_var.adding_new_user();
                     auto_reg.Show();
                     this.Close();
                 }

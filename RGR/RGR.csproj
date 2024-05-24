@@ -149,6 +149,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PlantRegisterDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Вход\Авторизация\AutorisationClass.cs" />
     <Compile Include="Вход\Вход в режим администратора\EntAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +162,7 @@
     <Compile Include="Вход\Регистрация\Registration.Designer.cs">
       <DependentUpon>Registration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Вход\Регистрация\RegistrationClass.cs" />
     <Compile Include="Поиск\Расширенный\Advanced_search.cs" />
     <Compile Include="Поиск\Расширенный\Advanced_search_page.cs">
       <SubType>Form</SubType>
@@ -183,7 +185,6 @@
       <DependentUpon>Add_request_page.cs</DependentUpon>
     </Compile>
     <Compile Include="БД\PlantTable.cs" />
-    <Compile Include="Вход\AutoRegis.cs" />
     <Compile Include="Вход\Авторизация\Autorisation.cs">
       <SubType>Form</SubType>
     </Compile>
