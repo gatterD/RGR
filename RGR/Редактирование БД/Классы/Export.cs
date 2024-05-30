@@ -10,6 +10,7 @@ namespace RGR.Страница_сорта
 {
     public class Export
     {
+         
         private DataTable data;
         public Export() { }
 
