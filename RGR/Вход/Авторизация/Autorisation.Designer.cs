@@ -35,6 +35,7 @@
             this.button_enter = new System.Windows.Forms.Button();
             this.button_cancel = new System.Windows.Forms.Button();
             this.button_registration = new System.Windows.Forms.Button();
+            this.Resume_acc = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label_login
@@ -118,12 +119,26 @@
             this.button_registration.UseVisualStyleBackColor = true;
             this.button_registration.Click += new System.EventHandler(this.button_registration_Click);
             // 
+            // Resume_acc
+            // 
+            this.Resume_acc.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
+            this.Resume_acc.Location = new System.Drawing.Point(123, 246);
+            this.Resume_acc.Margin = new System.Windows.Forms.Padding(4);
+            this.Resume_acc.Name = "Resume_acc";
+            this.Resume_acc.Size = new System.Drawing.Size(166, 43);
+            this.Resume_acc.TabIndex = 7;
+            this.Resume_acc.Text = "Вернуть доступ";
+            this.Resume_acc.UseVisualStyleBackColor = true;
+            this.Resume_acc.Visible = false;
+            this.Resume_acc.Click += new System.EventHandler(this.Resume_acc_Click);
+            // 
             // Autorisation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(455, 320);
             this.ControlBox = false;
+            this.Controls.Add(this.Resume_acc);
             this.Controls.Add(this.button_registration);
             this.Controls.Add(this.button_cancel);
             this.Controls.Add(this.button_enter);
@@ -151,5 +166,6 @@
         private System.Windows.Forms.Button button_enter;
         private System.Windows.Forms.Button button_cancel;
         private System.Windows.Forms.Button button_registration;
+        private System.Windows.Forms.Button Resume_acc;
     }
 }

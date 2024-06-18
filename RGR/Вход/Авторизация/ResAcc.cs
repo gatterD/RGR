@@ -1,4 +1,5 @@
 ﻿using MaterialSkin.Controls;
+using Microsoft.Office.Core;
 using RGR.Message;
 using System;
 using System.Collections.Generic;
@@ -13,18 +14,17 @@ using System.Windows.Forms;
 
 namespace RGR.Вход.Вход_в_режим_администратора
 {
-    public partial class EntAdmin : MaterialForm
+    public partial class ResAcc : MaterialForm
     {
-        private Main_page main_page;
         private string login;
         private int col_of_attempt;
         private string password;
         private Autorisation auto;
-        public EntAdmin()
+        SelfMessageBox mes;
+        public ResAcc()
         {
             InitializeComponent();
-            password = "115599";
-            main_page = new Main_page();
+            password = "335577";
             auto = new Autorisation();
             col_of_attempt = 3;
             set_max_lenght();
@@ -41,7 +41,7 @@ namespace RGR.Вход.Вход_в_режим_администратора
         {
             this.Close();
 
-            main_page.Show();
+            auto.Show();
         }
 
         private void button_enter_Click(object sender, EventArgs e)
@@ -57,9 +57,8 @@ namespace RGR.Вход.Вход_в_режим_администратора
                 {
                     this.Close();
 
-                    DateTime newTime = DateTime.Now.AddDays(30);
-                    string sqlExpression;
-                    sqlExpression = "UPDATE Autorization SET DataBan = '" + newTime.Date.ToString() + "' WHERE Name= '" + login + "'";
+                    DateTime newTime = DateTime.Now.AddDays(360);
+                    string sqlExpression = "UPDATE Autorization SET DataBan = '" + newTime.Date.ToString() + "' WHERE Name= '" + login + "'";
 
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
@@ -69,16 +68,19 @@ namespace RGR.Вход.Вход_в_режим_администратора
                         Console.WriteLine("Обновлено объектов: {0}", number);
                     }
 
-                    auto.Show();
+                    mes = new SelfMessageBox("Вы ввели код неправильно три раза, ваш аккаунт заблокирован на год, и не подлежит разблокировке до момента истечения срока!");
+                    auto.Show(); 
+                    mes.Show();
+                    
+                    return;
                 }
-                SelfMessageBox mes = new SelfMessageBox($"Вы ввели неправильный код, у вас осталось {col_of_attempt} {sps}!");
+                mes = new SelfMessageBox($"Вы ввели неправильный код, у вас осталось {col_of_attempt} {sps}!");
                 mes.Show();
             }
             else
             {
 
-                string sqlExpression;
-                sqlExpression = "UPDATE Autorization SET admin_mode= 'True' WHERE Name= '" + login + "'";
+                string sqlExpression = "UPDATE Autorization SET DataBan = NULL WHERE Name= '" + login + "'";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -87,11 +89,10 @@ namespace RGR.Вход.Вход_в_режим_администратора
                     int number = command.ExecuteNonQuery();
                     Console.WriteLine("Обновлено объектов: {0}", number);
                 }
-                SelfMessageBox mes = new SelfMessageBox($"Вы ввели правильный код, вы получили доступ к функциям администратора.");
-                
-                
-                main_page.admin_mode = true;
-                main_page.Show();
+                mes = new SelfMessageBox($"Вы ввели правильный код, вы получили доступ к аккаунту.");
+
+
+                auto.Show();
                 mes.Show();
                 this.Close();
             }

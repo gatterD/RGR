@@ -1,6 +1,6 @@
 ﻿namespace RGR.Вход.Вход_в_режим_администратора
 {
-    partial class EntAdmin
+    partial class ResAcc
     {
         /// <summary>
         /// Required designer variable.
@@ -76,7 +76,7 @@
             // 
             this.label_pasword.AutoSize = true;
             this.label_pasword.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label_pasword.Location = new System.Drawing.Point(68, 119);
+            this.label_pasword.Location = new System.Drawing.Point(79, 119);
             this.label_pasword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_pasword.Name = "label_pasword";
             this.label_pasword.Size = new System.Drawing.Size(50, 25);
@@ -91,7 +91,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(455, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(455, 30);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -99,11 +99,11 @@
             // 
             this.выходToolStripMenuItem.Font = new System.Drawing.Font("Comic Sans MS", 9F);
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(71, 26);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
-            // EntAdmin
+            // ResAcc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -117,7 +117,7 @@
             this.Controls.Add(this.label_pasword);
             this.MaximumSize = new System.Drawing.Size(455, 320);
             this.MinimumSize = new System.Drawing.Size(455, 320);
-            this.Name = "EntAdmin";
+            this.Name = "ResAcc";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "            Вход в режим администратора    ";

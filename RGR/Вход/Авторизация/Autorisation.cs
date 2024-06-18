@@ -13,6 +13,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Mail;
+using System.Net.Mime;
+using RGR.Вход.Вход_в_режим_администратора;
+
 
 namespace RGR
 {
@@ -21,6 +26,7 @@ namespace RGR
         private Main_page main_page;
         private Registration reg;
         private AutorisationClass AuCl;
+        private ResAcc accauntRes;
 
         public Autorisation()
         {
@@ -51,12 +57,26 @@ namespace RGR
 
         private void button_enter_Click(object sender, EventArgs e)
         {
-            
-            if (result_search_log_pas())
+            AuCl = new AutorisationClass(textBox_login.Text, textBox_pasword.Text);
+            if (AuCl.cheking_ban_on_account())
+            {
+                
+                int haveDays = AuCl.get_col_days();
+                if (haveDays > 31)
+                    MessageBox.Show("Вы не можете вернуть доступ к своему аккаунту, так как ваша блокировка должна продлится больше года.", "Сообщение",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                {
+                    MessageBox.Show("Вы можете вернуть доступ к своему аккаунту введя код восстановления, который вы можете получить от Администратора.", "Сообщение",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Resume_acc.Visible = true;
+                }
+            }
+            else if (result_search_log_pas())
             {
                 main_page.admin_mode = result_search_adm();
-                main_page.get_acc_name(this.textBox_login.Text); 
-                
+                main_page.get_acc_name(this.textBox_login.Text);
+
                 main_page.Show();
                 this.Hide();
 
@@ -75,10 +95,8 @@ namespace RGR
             else
             {
 
-                string sound = @"C:\Users\admin\Desktop\ИС-31 Марцинкевич Е.С. Георгиева Д.О.\RGR\RGR\Resources\goofy-ahh-laugh-meme.wav";
                 string text = "Вы ввели неправильный логин или пароль!\r\nВведите информацию заново, проверив правильность введенных вами данных";
-                string image = "C:\\Users\\admin\\Desktop\\ИС-31 Марцинкевич Е.С. Георгиева Д.О\\RGR\\RGR\\Images\\3x.png";
-                SelfMessageBox ErrorPage = new SelfMessageBox(text, sound,image);
+                SelfMessageBox ErrorPage = new SelfMessageBox(text);
                 ErrorPage.Show();
 
                 textBox_login.Text = "";
@@ -108,6 +126,14 @@ namespace RGR
         {
             reg = new Registration(this);
             reg.Show();
+            this.Hide();
+        }
+
+        private void Resume_acc_Click(object sender, EventArgs e)
+        {
+            accauntRes = new ResAcc();
+            accauntRes.get_login(textBox_login.Text);
+            accauntRes.Show();
             this.Hide();
         }
     }
