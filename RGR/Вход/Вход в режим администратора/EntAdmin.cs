@@ -1,14 +1,7 @@
 ﻿using MaterialSkin.Controls;
 using RGR.Message;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RGR.Вход.Вход_в_режим_администратора
@@ -88,8 +81,8 @@ namespace RGR.Вход.Вход_в_режим_администратора
                     Console.WriteLine("Обновлено объектов: {0}", number);
                 }
                 SelfMessageBox mes = new SelfMessageBox($"Вы ввели правильный код, вы получили доступ к функциям администратора.");
-                
-                
+
+
                 main_page.admin_mode = true;
                 main_page.Show();
                 mes.Show();

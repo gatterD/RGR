@@ -1,22 +1,9 @@
-﻿using MaterialSkin;
-using MaterialSkin.Controls;
-using MySqlX.XDevAPI.Common;
+﻿using MaterialSkin.Controls;
 using RGR.Message;
+using RGR.Вход.Вход_в_режим_администратора;
 using RGR.Вход.Регистрация;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Net;
-using System.Net.Mail;
-using System.Net.Mime;
-using RGR.Вход.Вход_в_режим_администратора;
 
 
 namespace RGR
@@ -48,7 +35,7 @@ namespace RGR
         {
             AuCl = new AutorisationClass(textBox_login.Text, textBox_pasword.Text);
             return AuCl.autorization_search_adm();
-            
+
         }
         private void button_cancel_Click(object sender, EventArgs e)
         {
@@ -60,7 +47,7 @@ namespace RGR
             AuCl = new AutorisationClass(textBox_login.Text, textBox_pasword.Text);
             if (AuCl.cheking_ban_on_account())
             {
-                
+
                 int haveDays = AuCl.get_col_days();
                 if (haveDays > 31)
                     MessageBox.Show("Вы не можете вернуть доступ к своему аккаунту, так как ваша блокировка должна продлится больше года.", "Сообщение",
@@ -80,7 +67,7 @@ namespace RGR
                 main_page.Show();
                 this.Hide();
 
-                if(main_page.admin_mode)
+                if (main_page.admin_mode)
                 {
                     MessageBox.Show("Вы вошли как администратор.", "Сообщение",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -107,7 +94,7 @@ namespace RGR
 
         private void transfer_cursor_enter(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 textBox_pasword.Focus();
             }

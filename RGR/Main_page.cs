@@ -3,14 +3,7 @@ using MaterialSkin.Controls;
 using RGR.Message;
 using RGR.Вход.Вход_в_режим_администратора;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RGR
@@ -104,7 +97,7 @@ namespace RGR
             srch.connection.Open();
             int PlantCount = (int)command.ExecuteScalar();
 
-            if(this.textBox_simple_search.Text == "")
+            if (this.textBox_simple_search.Text == "")
             {
                 srch.connection.Close();
 
@@ -134,7 +127,7 @@ namespace RGR
                 mes.Show();
                 srch.connection.Close();
             }
-            
+
         }
 
         private void button_advanced_search_Click(object sender, EventArgs e)

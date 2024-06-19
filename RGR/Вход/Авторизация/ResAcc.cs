@@ -1,15 +1,7 @@
 ﻿using MaterialSkin.Controls;
-using Microsoft.Office.Core;
 using RGR.Message;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RGR.Вход.Вход_в_режим_администратора
@@ -69,9 +61,9 @@ namespace RGR.Вход.Вход_в_режим_администратора
                     }
 
                     mes = new SelfMessageBox("Вы ввели код неправильно три раза, ваш аккаунт заблокирован на год, и не подлежит разблокировке до момента истечения срока!");
-                    auto.Show(); 
+                    auto.Show();
                     mes.Show();
-                    
+
                     return;
                 }
                 mes = new SelfMessageBox($"Вы ввели неправильный код, у вас осталось {col_of_attempt} {sps}!");

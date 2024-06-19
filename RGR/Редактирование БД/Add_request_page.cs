@@ -1,8 +1,5 @@
 ﻿using MaterialSkin.Controls;
-using RGR.Message;
-using RGR;
 using System;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace RGR

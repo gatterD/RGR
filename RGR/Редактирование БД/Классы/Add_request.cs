@@ -2,15 +2,11 @@
 {
 
     using System;
-    using System.Collections.Generic;
     using System.Data.SqlClient;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     public class Add_request : Request
     {
         private PlantTable model = new PlantTable(); //Поле-кортеж базы данных
-        public Add_request(string Name, string Category, string Author, string ParentVariety, string Productivity, 
+        public Add_request(string Name, string Category, string Author, string ParentVariety, string Productivity,
             string FrostResistance, string PestResistance, string DiseaseResistance)
         {
             model.Name = Name; //Название сорта

@@ -1,13 +1,7 @@
 ﻿namespace RGR
 {
-    using MySqlX.XDevAPI;
     using System;
-    using System.Collections.Generic;
     using System.Data.SqlClient;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Web;
     using System.Windows.Forms;
 
     public class AutorisationClass : Search
@@ -36,7 +30,7 @@
                 return false;
             }
         }
-        public bool autorization_search_adm() 
+        public bool autorization_search_adm()
         {
             string filter = "SELECT COUNT(*) FROM Autorization WHERE Name LIKE '" + autoBD.Name + "' and Password LIKE '" + autoBD.Password + "' and admin_mode LIKE 'True'";
             SqlCommand command = new SqlCommand(filter, connection);
@@ -111,5 +105,5 @@
             return (bantimeT.Date - today.Date).Days;
         }
     }
-      
+
 }

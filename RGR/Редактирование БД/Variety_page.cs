@@ -1,16 +1,9 @@
-﻿using MaterialSkin;
-using MaterialSkin.Controls;
+﻿using MaterialSkin.Controls;
+using RGR.Страница_сорта;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using RGR.Страница_сорта;
 
 namespace RGR
 {
@@ -30,7 +23,7 @@ namespace RGR
         {
             InitializeComponent();
         }
-        
+
         public Variety_page(Match_page page, Main_page m_page, PlantTable current)
         {
             InitializeComponent();
@@ -70,7 +63,7 @@ namespace RGR
 
         private void вернутьсяToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(position)
+            if (position)
             {
                 return_page.Show();
                 this.Close();
@@ -99,7 +92,7 @@ namespace RGR
             richTextBox_pestResistance.Text = model.PestResistance;
             richTextBox_diseaseResistance.Text = model.DiseaseResistance;
 
-            if(model.ParentVariety != null)
+            if (model.ParentVariety != null)
             {
                 Parent_request request = new Parent_request(textBox_number.Text);
                 textBox_Pname.Text = request.parent_name();
@@ -109,14 +102,14 @@ namespace RGR
                 button_parent.Enabled = false;
             }
 
-            if(main_page.admin_mode)
+            if (main_page.admin_mode)
             {
                 textBox_name.ReadOnly = textBox_author.ReadOnly = textBox_number.ReadOnly =
                     textBox_Pname.ReadOnly = textBox_productivity.ReadOnly =
                     textBox_frostResistance.ReadOnly = richTextBox_pestResistance.ReadOnly =
-                    richTextBox_diseaseResistance.ReadOnly =  false;
+                    richTextBox_diseaseResistance.ReadOnly = false;
 
-                comboBox_category.Enabled = 
+                comboBox_category.Enabled =
                     button_change.Enabled = button_delete.Enabled = true;
             }
             else
@@ -146,13 +139,13 @@ namespace RGR
 
         private void button_delete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Вы уверены, что хотите удалить сорта растения?\n", 
-                "Предупреждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question) 
+            if (MessageBox.Show("Вы уверены, что хотите удалить сорта растения?\n",
+                "Предупреждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 == DialogResult.Yes)
             {
                 del_sort_tr = new Delete_request(model);
                 del_sort_tr.del_sort();
-                
+
                 main_page.Show();
                 this.Close();
 
@@ -178,7 +171,7 @@ namespace RGR
 
         private void button_download_Click(object sender, EventArgs e)
         {
-            var query = "select * from PlantTable where CustomID LIKE '"+ model.CustomID + "'";
+            var query = "select * from PlantTable where CustomID LIKE '" + model.CustomID + "'";
 
             var datatable = new DataTable();
 

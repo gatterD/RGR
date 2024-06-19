@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
-using System.Data.SqlClient;
 
 namespace RGR.Страница_сорта
 {
     public class Export
     {
-         
+
         private DataTable data;
         public Export() { }
 
-        public Export(DataTable dataTable) 
+        public Export(DataTable dataTable)
         {
             data = dataTable;
         }

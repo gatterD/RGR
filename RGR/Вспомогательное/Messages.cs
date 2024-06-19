@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace RGR
 {
@@ -37,7 +28,7 @@ namespace RGR
 
         public void reference_message()
         {
-            MessageBox.Show("Над программой не работали" , "Не информация",
+            MessageBox.Show("Над программой не работали", "Не информация",
                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 

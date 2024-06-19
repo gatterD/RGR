@@ -1,17 +1,7 @@
-﻿using MaterialSkin;
-using MaterialSkin.Controls;
+﻿using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using System.Data.Entity;
 
 namespace RGR
 {
@@ -57,7 +47,7 @@ namespace RGR
 
         private void вернутьсяToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(position)
+            if (position)
             {
                 return_page.Show();
                 this.Close();
@@ -72,7 +62,7 @@ namespace RGR
         private void вНачалоToolStripMenuItem_Click(object sender, EventArgs e)
         {
             return_page.Show();
-            if(!position)
+            if (!position)
                 search_page.Close();
             this.Close();
         }
@@ -136,7 +126,7 @@ namespace RGR
                     }
                     reader.Close();
                 }
-                
+
                 Variety_page current_variety = new Variety_page(this, return_page, model);
 
                 this.Hide();

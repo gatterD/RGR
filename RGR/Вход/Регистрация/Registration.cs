@@ -1,17 +1,5 @@
-﻿using MaterialSkin;
-using MaterialSkin.Controls;
-using MySqlX.XDevAPI.Common;
-using RGR.Message;
-using RGR.Вход.Регистрация;
+﻿using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RGR.Вход.Регистрация
@@ -40,7 +28,7 @@ namespace RGR.Вход.Регистрация
         private void button_cancel_Click(object sender, EventArgs e)
         {
             auto_reg.Show();
-            this.Close();   
+            this.Close();
         }
 
         private void transfer_cursor_enter(object sender, KeyEventArgs e)
@@ -64,10 +52,10 @@ namespace RGR.Вход.Регистрация
             Reg_var = new RegistrationClass(textBox_login.Text, textBox_pasword.Text);
             return Reg_var.registration_oper_pas();
         }
-        
+
         private void button_registration_Click(object sender, EventArgs e)
         {
-            if(result_search_log_pas())
+            if (result_search_log_pas())
             {
                 MessageBox.Show("Данный логин уже существует, введите другое имя пользователя.", "Внимение!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -76,15 +64,15 @@ namespace RGR.Вход.Регистрация
             }
             else
             {
-                
+
                 if (textBox_login.Text == "")
                 {
                     MessageBox.Show("Вы не ввели логин, для регистрации он обязателен.", "Внимение!",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if(textBox_login.Text == "")
+                else if (textBox_login.Text == "")
                 {
-                    if(MessageBox.Show("Вы не ввели пароль, уверены что хотите продолжить регистрацию?", "Вы уверены?", 
+                    if (MessageBox.Show("Вы не ввели пароль, уверены что хотите продолжить регистрацию?", "Вы уверены?",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         Reg_var = new RegistrationClass(textBox_login.Text, textBox_pasword.Text);
