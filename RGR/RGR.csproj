@@ -12,7 +12,9 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <PublishUrl>publish\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>C:\Users\admin\Desktop\ИС-31 Марцинкевич Е.С. Георгиева Д.О\publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,12 +24,11 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,6 +50,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>5CBEC85C1051D14328C863F92245A3021DBF7FAF</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>RGR_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
@@ -142,11 +155,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="БД\Autorization.cs" />
     <Compile Include="Вспомогательное\Messages.cs" />
     <Compile Include="PlantRegisterDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PlantRegisterDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Вход\Авторизация\AutorisationClass.cs" />
+    <Compile Include="Вход\Авторизация\ResAcc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Вход\Авторизация\ResAcc.Designer.cs">
+      <DependentUpon>ResAcc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Вход\Вход в режим администратора\EntAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Вход\Вход в режим администратора\EntAdmin.Designer.cs">
+      <DependentUpon>EntAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="Вход\Регистрация\Registration.cs">
       <SubType>Form</SubType>
@@ -154,6 +181,7 @@
     <Compile Include="Вход\Регистрация\Registration.Designer.cs">
       <DependentUpon>Registration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Вход\Регистрация\RegistrationClass.cs" />
     <Compile Include="Поиск\Расширенный\Advanced_search.cs" />
     <Compile Include="Поиск\Расширенный\Advanced_search_page.cs">
       <SubType>Form</SubType>
@@ -176,8 +204,6 @@
       <DependentUpon>Add_request_page.cs</DependentUpon>
     </Compile>
     <Compile Include="БД\PlantTable.cs" />
-    <Compile Include="БД\PlantVarietyModel.cs" />
-    <Compile Include="Вход\AutoRegis.cs" />
     <Compile Include="Вход\Авторизация\Autorisation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,16 +219,26 @@
     <Compile Include="Register_controller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Вспомогательное\Checkers.cs" />
-    <Compile Include="Страница сорта\Export.cs" />
-    <Compile Include="Страница сорта\Parent_request.cs" />
-    <Compile Include="Страница сорта\Variety_page.cs">
+    <Compile Include="Редактирование БД\Классы\Add_request.cs" />
+    <Compile Include="Редактирование БД\Классы\Changing.cs" />
+    <Compile Include="Редактирование БД\Классы\Delete_request.cs" />
+    <Compile Include="Редактирование БД\Классы\Export.cs" />
+    <Compile Include="Редактирование БД\Классы\Parent_request.cs" />
+    <Compile Include="Редактирование БД\Классы\Request.cs" />
+    <Compile Include="Редактирование БД\Variety_page.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Страница сорта\Variety_page.Designer.cs">
+    <Compile Include="Редактирование БД\Variety_page.Designer.cs">
       <DependentUpon>Variety_page.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Message\SelfMessageBox.resx">
       <DependentUpon>SelfMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Вход\Авторизация\ResAcc.resx">
+      <DependentUpon>ResAcc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Вход\Вход в режим администратора\EntAdmin.resx">
+      <DependentUpon>EntAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Вход\Регистрация\Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
@@ -227,7 +263,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Страница сорта\Variety_page.resx">
+    <EmbeddedResource Include="Редактирование БД\Variety_page.resx">
       <DependentUpon>Variety_page.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -251,9 +287,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="VarietyPage.docx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="RGR_TemporaryKey.pfx" />
+    <None Include="VarietyPage.docx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -319,11 +354,16 @@
     <None Include="Resources\icons8-exit-48.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\3x.png" />
     <Content Include="Images\Admin24.png" />
+    <Content Include="Images\Dobavlenie.png" />
     <Content Include="Images\Fon.png" />
+    <Content Include="Images\Fon2.png" />
+    <Content Include="Images\icons8-warning-50.png" />
     <Content Include="Images\main_picture24.png" />
     <Content Include="Images\main_picture280x100.png" />
     <Content Include="Images\Poisk24.png" />
+    <Content Include="Images\search2.png" />
     <Content Include="Images\Rasshirenny_poisk24.png" />
     <Content Include="Images\Rezhim_redaktirovania24.png" />
     <Content Include="Images\Vykhod24.png" />

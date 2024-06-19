@@ -1,13 +1,9 @@
 ﻿using MaterialSkin;
 using MaterialSkin.Controls;
+using RGR.Message;
+using RGR.Вход.Вход_в_режим_администратора;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace RGR
@@ -15,6 +11,7 @@ namespace RGR
     public partial class Main_page : MaterialForm
     {
         public bool admin_mode = false;
+        private string acc_name;
         private Checkers enter_checker = new Checkers();
         private Messages info = new Messages();
 
@@ -30,14 +27,19 @@ namespace RGR
             tips.SetToolTip(this.button_simple_search, "Поиск");
             tips.SetToolTip(this.button_add, "Добавить");
             tips.SetToolTip(this.button_advanced_search, "Расширенный поиск");
+            this.textBox_simple_search.MaxLength = 20;
 
         }
-
+        public void get_acc_name(string Name)
+        {
+            acc_name = Name;
+        }
         private void button_enter_Click(object sender, EventArgs e)
         {
-            Autorisation enter_page = new Autorisation();
+            EntAdmin enter_page = new EntAdmin();
 
             this.Hide();
+            enter_page.get_login(acc_name);
             enter_page.Show();
         }
 
@@ -89,17 +91,48 @@ namespace RGR
 
         private void button_simple_search_Click(object sender, EventArgs e)
         {
-            Arbirary_search new_search = new Arbirary_search(simple_search.Text);
+            Search srch = new Search();
+            string filter = "SELECT COUNT(*) FROM PlantTable WHERE Name LIKE '" + this.textBox_simple_search.Text + "'";
+            SqlCommand command = new SqlCommand(filter, srch.connection);
+            srch.connection.Open();
+            int PlantCount = (int)command.ExecuteScalar();
 
-            Match_page match_page = new Match_page(new_search.request(), this);
+            if (this.textBox_simple_search.Text == "")
+            {
+                srch.connection.Close();
 
-            this.Hide();
-            match_page.Show();
+                Arbirary_search new_search = new Arbirary_search(textBox_simple_search.Text);
+
+                Match_page match_page = new Match_page(new_search.request(), this);
+
+                this.Hide();
+                match_page.Show();
+            }
+            else if (PlantCount > 0)
+            {
+                srch.connection.Close();
+
+                Arbirary_search new_search = new Arbirary_search(textBox_simple_search.Text);
+
+                Match_page match_page = new Match_page(new_search.request(), this);
+
+                this.Hide();
+                match_page.Show();
+                SelfMessageBox mes = new SelfMessageBox($"Найдено {PlantCount} растений.");
+                mes.Show();
+            }
+            else
+            {
+                SelfMessageBox mes = new SelfMessageBox($"Такого растения нет в БД.");
+                mes.Show();
+                srch.connection.Close();
+            }
+
         }
 
         private void button_advanced_search_Click(object sender, EventArgs e)
         {
-            Advanced_search_page advanced_page = new Advanced_search_page(this, simple_search.Text);
+            Advanced_search_page advanced_page = new Advanced_search_page(this, textBox_simple_search.Text);
 
             this.Hide();
             advanced_page.Show();

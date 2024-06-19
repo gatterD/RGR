@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 
 namespace RGR
 {
@@ -25,7 +17,7 @@ namespace RGR
         public DataTable request()
         {
             string filter = "SELECT * FROM PlantTable WHERE Name LIKE '" + search + "%'";
-          
+
             DataTable data_table = new DataTable("PlantTable"); //Пустая таблица для результатов запроса
             SqlDataAdapter sql_data_adapter = new SqlDataAdapter(filter, connection); //Запрос к БД
 

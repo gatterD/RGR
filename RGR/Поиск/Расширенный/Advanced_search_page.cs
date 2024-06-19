@@ -1,13 +1,5 @@
-﻿using MaterialSkin;
-using MaterialSkin.Controls;
+﻿using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RGR
@@ -22,11 +14,13 @@ namespace RGR
         public Advanced_search_page()
         {
             InitializeComponent();
+            set_max_lenght();
         }
 
         public Advanced_search_page(Main_page page, string current_name)
         {
             InitializeComponent();
+            set_max_lenght();
             return_page = page;
             search_name = current_name;
         }
@@ -68,7 +62,14 @@ namespace RGR
                 match_page.Show();
             }
         }
-
+        private void set_max_lenght()
+        {
+            this.textBox_name.MaxLength = 20;
+            this.textBox_author.MaxLength = 20;
+            this.textBox_number.MaxLength = 3;
+            this.textBox_productivity.MaxLength = 2;
+            this.textBox_frostResistance.MaxLength = 1;
+        }
         private void textBox_name_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = enter_checker.enter_Cheker_LetterOnly(e);

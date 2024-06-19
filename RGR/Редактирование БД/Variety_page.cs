@@ -1,13 +1,7 @@
-﻿using MaterialSkin;
-using MaterialSkin.Controls;
+﻿using MaterialSkin.Controls;
+using RGR.Страница_сорта;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -21,6 +15,8 @@ namespace RGR
         private Match_page return_page;
         private PlantTable model;
         private Variety_page child_page;
+        private Changing chan_var;
+        private Delete_request del_sort_tr;
         private bool position;
 
         public Variety_page()
@@ -35,6 +31,7 @@ namespace RGR
             return_page = page;
             model = current;
             position = true;
+            set_max_lenght();
         }
 
         public Variety_page(Main_page m_page, PlantTable current, Variety_page r_page)
@@ -44,8 +41,16 @@ namespace RGR
             model = current;
             child_page = r_page;
             position = false;
+            set_max_lenght();
         }
-
+        private void set_max_lenght()
+        {
+            this.textBox_name.MaxLength = 20;
+            this.textBox_author.MaxLength = 20;
+            this.textBox_number.MaxLength = 3;
+            this.textBox_productivity.MaxLength = 3;
+            this.textBox_frostResistance.MaxLength = 1;
+        }
         private void глоссарийToolStripMenuItem_Click(object sender, EventArgs e)
         {
             info.glossary_message();
@@ -58,7 +63,7 @@ namespace RGR
 
         private void вернутьсяToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(position)
+            if (position)
             {
                 return_page.Show();
                 this.Close();
@@ -87,7 +92,7 @@ namespace RGR
             richTextBox_pestResistance.Text = model.PestResistance;
             richTextBox_diseaseResistance.Text = model.DiseaseResistance;
 
-            if(model.ParentVariety != null)
+            if (model.ParentVariety != null)
             {
                 Parent_request request = new Parent_request(textBox_number.Text);
                 textBox_Pname.Text = request.parent_name();
@@ -97,14 +102,14 @@ namespace RGR
                 button_parent.Enabled = false;
             }
 
-            if(main_page.admin_mode)
+            if (main_page.admin_mode)
             {
                 textBox_name.ReadOnly = textBox_author.ReadOnly = textBox_number.ReadOnly =
                     textBox_Pname.ReadOnly = textBox_productivity.ReadOnly =
                     textBox_frostResistance.ReadOnly = richTextBox_pestResistance.ReadOnly =
-                    richTextBox_diseaseResistance.ReadOnly =  false;
+                    richTextBox_diseaseResistance.ReadOnly = false;
 
-                comboBox_category.Enabled = 
+                comboBox_category.Enabled =
                     button_change.Enabled = button_delete.Enabled = true;
             }
             else
@@ -118,62 +123,10 @@ namespace RGR
         {
             if (enter_checker.parent_and_frost_Checker(textBox_frostResistance.Text, textBox_number.Text, textBox_Pname.Text))
             { //Проверка требований к пользовательским данным
-                model.Name = textBox_name.Text.Trim(); //Название сорта
-                model.Category = comboBox_category.Text.Trim(); //Категория сорта
-                model.Author = textBox_author.Text.Trim(); //Автор сорка
-
-                if (textBox_number.Text.Length != 0) //Проверка на пустое поле
-                    model.ParentVariety = Convert.ToInt32(textBox_number.Text); //Индекс родительского сорта
-                else
-                    model.ParentVariety = null;
-
-                if (textBox_productivity.Text.Length != 0) //Проверка на пустое поле
-                    model.Productivity = Convert.ToInt32(textBox_productivity.Text); //Урожайность
-                else
-                    model.Productivity = null;
-
-                if (textBox_frostResistance.Text.Length != 0) //Проверка на пустое поле
-                    model.FrostResistance = Convert.ToInt32(textBox_frostResistance.Text); //Морозостойкость
-                else
-                    model.FrostResistance = null;
-
-                model.PestResistance = richTextBox_pestResistance.Text.Trim(); //Устойчивость к вредителям
-                model.DiseaseResistance = richTextBox_diseaseResistance.Text.Trim(); //Устойчивость к болезням
-
-                string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=C:\\Users\\admin\\Desktop\\ИС-31 Марцинкевич Е.С. Георгиева Д.О\\БД\\PlantRegister.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
-
-                string sqlExpression;
-                if (model.ParentVariety != null)
-                {
-                    sqlExpression = "UPDATE PlantTable SET Name= '"
-                    + model.Name + "' , Category= '"
-                    + model.Category + "' , Author= '"
-                    + model.Author + "' , ParentVariety='"
-                    + model.ParentVariety + "', Productivity= "
-                    + model.Productivity + " , FrostResistance= "
-                    + model.FrostResistance + " , PestResistance= '"
-                    + model.PestResistance + "' , DiseaseResistance= '"
-                    + model.PestResistance + "' WHERE CustomID= '" + model.CustomID + "'";
-                }
-                else
-                {
-                    sqlExpression = "UPDATE PlantTable SET Name= '"
-                    + model.Name + "' , Category= '"
-                    + model.Category + "' , Author= '"
-                    + model.Author + "' , ParentVariety=NULL , Productivity= "
-                    + model.Productivity + " , FrostResistance= "
-                    + model.FrostResistance + " , PestResistance= '"
-                    + model.PestResistance + "' , DiseaseResistance= '"
-                    + model.PestResistance + "' WHERE CustomID= '" + model.CustomID + "'";
-                }
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    int number = command.ExecuteNonQuery();
-                    Console.WriteLine("Обновлено объектов: {0}", number);
-                }
+                chan_var = new Changing(textBox_name.Text.Trim(), comboBox_category.Text.Trim(), textBox_author.Text.Trim(),
+                    textBox_number.Text, textBox_productivity.Text, textBox_frostResistance.Text, richTextBox_pestResistance.Text.Trim(),
+                    richTextBox_diseaseResistance.Text.Trim(), model.CustomID);
+                chan_var.change_sort();
 
                 main_page.Show();
                 return_page.Close();
@@ -186,20 +139,12 @@ namespace RGR
 
         private void button_delete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Вы уверены, что хотите удалить сорта растения?\n", 
-                "Предупреждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question) 
+            if (MessageBox.Show("Вы уверены, что хотите удалить сорта растения?\n",
+                "Предупреждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 == DialogResult.Yes)
             {
-                string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=C:\\Users\\admin\\Desktop\\ИС-31 Марцинкевич Е.С. Георгиева Д.О\\БД\\PlantRegister.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
-
-                string sqlExpression = "DELETE  FROM PlantTable WHERE CustomID='"+model.CustomID+"'";
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    int number = command.ExecuteNonQuery();
-                    Console.WriteLine("Удалено объектов: {0}", number);
-                }
+                del_sort_tr = new Delete_request(model);
+                del_sort_tr.del_sort();
 
                 main_page.Show();
                 this.Close();
@@ -226,30 +171,37 @@ namespace RGR
 
         private void button_download_Click(object sender, EventArgs e)
         {
-            Export helper = new Export("VarietyPage.docx");
+            var query = "select * from PlantTable where CustomID LIKE '" + model.CustomID + "'";
 
-            var items = new Dictionary<string, string>
-            {
-                {"CustomID",  model.CustomID.ToString()},
-                {"Name", model.Name },
-                {"Category", model.Category },
-                {"Author", model.Author },
-                {"ParentVariety", model.ParentVariety.ToString() },
-                {"ParentN", textBox_Pname.Text },
-                {"Productivity", model.Productivity.ToString() },
-                {"FrostResistance", model.FrostResistance.ToString() },
-                {"PestResistance", model.PestResistance },
-                {"DiseaseResistance", model.DiseaseResistance }
-            };
+            var datatable = new DataTable();
 
-            if(helper.process(items))
-                MessageBox.Show("Файл скачан успешно.", "Сообщение",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                MessageBox.Show("Ошибка скачивания.", "Сообщение",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+            queryReturnData(query, datatable);
+            ExportToWord(datatable);
         }
+        public DataTable queryReturnData(string query, DataTable dataTable)
+        {
+            string con = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=C:\\Users\\admin\\Desktop\\ИС-31 Марцинкевич Е.С. Георгиева Д.О\\БД\\PlantRegister.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+            SqlConnection myCon = new SqlConnection(con);
+            myCon.Open();
 
+            SqlDataAdapter SDA = new SqlDataAdapter(query, myCon);
+            SDA.SelectCommand.ExecuteNonQuery();
+
+            SDA.Fill(dataTable);
+            return dataTable;
+        }
+        private void ExportToWord(DataTable dataTable)
+        {
+            if (dataTable.Rows.Count > 0)
+            {
+                Export word = new Export(dataTable);
+                word.createWord();
+            }
+            else
+            {
+                MessageBox.Show("No data to export!");
+            }
+        }
         private void comboBox_category_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;

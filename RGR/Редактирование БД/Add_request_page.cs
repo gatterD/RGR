@@ -1,28 +1,37 @@
 ﻿using MaterialSkin.Controls;
 using System;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace RGR
 {
     public partial class Add_request_page : MaterialForm
     {
-        private PlantTable model = new PlantTable(); //Поле-кортеж базы данных
         private Checkers enter_checker = new Checkers(); // Поле-объект класса проверок пользовательских данных
         private Messages info = new Messages();
         private Main_page main_page; //Поле возврата на начальную страниц
+        private Add_request adding;
 
         public Add_request_page() //Инициализация по умолчанию
         {
             InitializeComponent();
+            set_max_lenght();
+
         }
 
         public Add_request_page(Main_page page) //Инициализация со стартовой страницы
         {
             InitializeComponent();
+            set_max_lenght();
             main_page = page;
         }
-
+        private void set_max_lenght()
+        {
+            this.textBox_name.MaxLength = 20;
+            this.textBox_author.MaxLength = 20;
+            this.textBox_number.MaxLength = 3;
+            this.textBox_productivity.MaxLength = 2;
+            this.textBox_frostResistance.MaxLength = 1;
+        }
         private void справкаToolStripMenuItem_Click(object sender, EventArgs e) //Кнопка "Справка"
         {
             info.reference_message();
@@ -48,46 +57,10 @@ namespace RGR
         {
             if (enter_checker.parent_and_frost_Checker(textBox_frostResistance.Text, textBox_number.Text, textBox_Pname.Text))
             { //Проверка требований к пользовательским данным
-                model.Name = textBox_name.Text.Trim(); //Название сорта
-                model.Category = comboBox_category.Text.Trim(); //Категория сорта
-                model.Author = textBox_author.Text.Trim(); //Автор сорка
-
-                if (textBox_number.Text.Length != 0) //Проверка на пустое поле
-                    model.ParentVariety = Convert.ToInt32(textBox_number.Text); //Индекс родительского сорта
-
-                if (textBox_productivity.Text.Length != 0) //Проверка на пустое поле
-                    model.Productivity = Convert.ToInt32(textBox_productivity.Text); //Урожайность
-
-                if (textBox_frostResistance.Text.Length != 0) //Проверка на пустое поле
-                    model.FrostResistance = Convert.ToInt32(textBox_frostResistance.Text); //Морозостойкость
-
-                model.PestResistance = richTextBox_pestResistance.Text.Trim(); //Устойчивость к вредителям
-                model.DiseaseResistance = richTextBox_diseaseResistance.Text.Trim(); //Устойчивость к болезням
-
-                string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=C:\\Users\\admin\\Desktop\\ИС-31 Марцинкевич Е.С. Георгиева Д.О\\БД\\PlantRegister.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
-
-                string sqlExpression;
-                if (model.ParentVariety != null)
-                {
-                    sqlExpression = "INSERT INTO PlantTable (Name, Category, Author, ParentVariety, Productivity, FrostResistance, PestResistance, DiseaseResistance) " +
-                        "VALUES ('" + model.Name + "', '" + model.Category + "', '" + model.Author + "', " + model.ParentVariety + ", " + model.Productivity + ", " +
-                        "" + model.FrostResistance + ", '" + model.PestResistance + "', '" + model.DiseaseResistance + "')";
-                }
-                else
-                {
-                    sqlExpression = "INSERT INTO PlantTable (Name, Category, Author, ParentVariety, Productivity, FrostResistance, PestResistance, DiseaseResistance) " +
-                        "VALUES ('" + model.Name + "', '" + model.Category + "', '" + model.Author + "', NULL, " + model.Productivity + ", " +
-                        "" + model.FrostResistance + ", '" + model.PestResistance + "', '" + model.DiseaseResistance + "')";
-                }
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    int number = command.ExecuteNonQuery();
-                    Console.WriteLine("Добавлено объектов: {0}", number);
-                }
-                Console.Read();
+                adding = new Add_request(textBox_name.Text.Trim(), comboBox_category.Text.Trim(), textBox_author.Text.Trim(),
+                    textBox_number.Text, textBox_productivity.Text, textBox_frostResistance.Text, richTextBox_pestResistance.Text.Trim(),
+                    richTextBox_diseaseResistance.Text.Trim());
+                adding.adding_new_sort();
 
                 return_home(); //Возврат на начальную страницу
 

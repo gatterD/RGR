@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 
 namespace RGR
 {
@@ -30,13 +22,13 @@ namespace RGR
                 SqlDataAdapter sql_data_adapter = new SqlDataAdapter(l_filter, connection); //Запрос к БД
 
                 sql_data_adapter.Fill(data_table); //Заполнение пустой таблицы результатами запроса
-               
+
                 p_number = data_table.Rows[0].Field<int>(0).ToString(); //Индекс родительского сорта по его названию
             }
 
             filter = "SELECT * FROM PlantTable WHERE ";
 
-            if(name.Length != 0)
+            if (name.Length != 0)
                 filter = filter + "Name LIKE '" + name + "%' AND ";
             if (category.Length != 0)
                 filter = filter + "Category LIKE '" + category + "' AND ";

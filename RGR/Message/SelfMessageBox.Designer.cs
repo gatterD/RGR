@@ -36,6 +36,7 @@
             // 
             // label1
             // 
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 7.8F);
             this.label1.Location = new System.Drawing.Point(58, 250);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(399, 68);
@@ -45,6 +46,10 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.ImageLocation = "";
             this.pictureBox1.Location = new System.Drawing.Point(175, 85);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(155, 153);
@@ -53,7 +58,7 @@
             // 
             // button_okay
             // 
-            this.button_okay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_okay.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold);
             this.button_okay.Location = new System.Drawing.Point(205, 323);
             this.button_okay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_okay.Name = "button_okay";
@@ -63,7 +68,7 @@
             this.button_okay.UseVisualStyleBackColor = true;
             this.button_okay.Click += new System.EventHandler(this.button_okay_Click);
             // 
-            // ErrorMessage_LoginPassword
+            // SelfMessageBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -74,9 +79,9 @@
             this.Controls.Add(this.label1);
             this.MaximumSize = new System.Drawing.Size(500, 370);
             this.MinimumSize = new System.Drawing.Size(500, 370);
-            this.Name = "ErrorMessage_LoginPassword";
+            this.Name = "SelfMessageBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "                               Внимание!";
+            this.Text = "                                 Внимание!";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

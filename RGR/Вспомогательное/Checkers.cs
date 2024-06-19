@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -47,7 +41,7 @@ namespace RGR
                 return false;
         }
 
-       public bool parent_and_frost_Checker(string f_resis, string number, string name) //Метод проверки пользовательских данных
+        public bool parent_and_frost_Checker(string f_resis, string number, string name) //Метод проверки пользовательских данных
         {
             bool main_checker = true; //Триггер
             int frost_resistance; //Показатель морозостойскости

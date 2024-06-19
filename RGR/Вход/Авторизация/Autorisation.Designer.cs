@@ -35,56 +35,57 @@
             this.button_enter = new System.Windows.Forms.Button();
             this.button_cancel = new System.Windows.Forms.Button();
             this.button_registration = new System.Windows.Forms.Button();
+            this.Resume_acc = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label_login
             // 
             this.label_login.AutoSize = true;
-            this.label_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_login.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.label_login.Location = new System.Drawing.Point(66, 110);
             this.label_login.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_login.Name = "label_login";
-            this.label_login.Size = new System.Drawing.Size(70, 20);
+            this.label_login.Size = new System.Drawing.Size(71, 25);
             this.label_login.TabIndex = 0;
             this.label_login.Text = "Логин:";
             // 
             // label_pasword
             // 
             this.label_pasword.AutoSize = true;
-            this.label_pasword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_pasword.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.label_pasword.Location = new System.Drawing.Point(66, 150);
             this.label_pasword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_pasword.Name = "label_pasword";
-            this.label_pasword.Size = new System.Drawing.Size(84, 20);
+            this.label_pasword.Size = new System.Drawing.Size(81, 25);
             this.label_pasword.TabIndex = 1;
             this.label_pasword.Text = "Пароль:";
             // 
             // textBox_login
             // 
             this.textBox_login.BackColor = System.Drawing.Color.YellowGreen;
-            this.textBox_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_login.Font = new System.Drawing.Font("Comic Sans MS", 9.75F);
             this.textBox_login.Location = new System.Drawing.Point(161, 109);
             this.textBox_login.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_login.Name = "textBox_login";
-            this.textBox_login.Size = new System.Drawing.Size(201, 26);
+            this.textBox_login.Size = new System.Drawing.Size(201, 30);
             this.textBox_login.TabIndex = 2;
             this.textBox_login.KeyDown += new System.Windows.Forms.KeyEventHandler(this.transfer_cursor_enter);
             // 
             // textBox_pasword
             // 
             this.textBox_pasword.BackColor = System.Drawing.Color.YellowGreen;
-            this.textBox_pasword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_pasword.Font = new System.Drawing.Font("Comic Sans MS", 9.75F);
             this.textBox_pasword.Location = new System.Drawing.Point(161, 148);
             this.textBox_pasword.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_pasword.Name = "textBox_pasword";
             this.textBox_pasword.PasswordChar = '*';
-            this.textBox_pasword.Size = new System.Drawing.Size(201, 26);
+            this.textBox_pasword.Size = new System.Drawing.Size(201, 30);
             this.textBox_pasword.TabIndex = 3;
             this.textBox_pasword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cheking_result);
             // 
             // button_enter
             // 
-            this.button_enter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_enter.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.button_enter.Location = new System.Drawing.Point(70, 195);
             this.button_enter.Margin = new System.Windows.Forms.Padding(4);
             this.button_enter.Name = "button_enter";
@@ -96,7 +97,7 @@
             // 
             // button_cancel
             // 
-            this.button_cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_cancel.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.button_cancel.Location = new System.Drawing.Point(317, 264);
             this.button_cancel.Margin = new System.Windows.Forms.Padding(4);
             this.button_cancel.Name = "button_cancel";
@@ -108,7 +109,7 @@
             // 
             // button_registration
             // 
-            this.button_registration.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_registration.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.button_registration.Location = new System.Drawing.Point(215, 195);
             this.button_registration.Margin = new System.Windows.Forms.Padding(4);
             this.button_registration.Name = "button_registration";
@@ -118,12 +119,26 @@
             this.button_registration.UseVisualStyleBackColor = true;
             this.button_registration.Click += new System.EventHandler(this.button_registration_Click);
             // 
+            // Resume_acc
+            // 
+            this.Resume_acc.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
+            this.Resume_acc.Location = new System.Drawing.Point(123, 246);
+            this.Resume_acc.Margin = new System.Windows.Forms.Padding(4);
+            this.Resume_acc.Name = "Resume_acc";
+            this.Resume_acc.Size = new System.Drawing.Size(166, 43);
+            this.Resume_acc.TabIndex = 7;
+            this.Resume_acc.Text = "Вернуть доступ";
+            this.Resume_acc.UseVisualStyleBackColor = true;
+            this.Resume_acc.Visible = false;
+            this.Resume_acc.Click += new System.EventHandler(this.Resume_acc_Click);
+            // 
             // Autorisation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(455, 320);
             this.ControlBox = false;
+            this.Controls.Add(this.Resume_acc);
             this.Controls.Add(this.button_registration);
             this.Controls.Add(this.button_cancel);
             this.Controls.Add(this.button_enter);
@@ -137,7 +152,6 @@
             this.Name = "Autorisation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "                          Авторизация";
-            this.Load += new System.EventHandler(this.Enter_administrator_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,5 +166,6 @@
         private System.Windows.Forms.Button button_enter;
         private System.Windows.Forms.Button button_cancel;
         private System.Windows.Forms.Button button_registration;
+        private System.Windows.Forms.Button Resume_acc;
     }
 }

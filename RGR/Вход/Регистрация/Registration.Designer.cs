@@ -39,12 +39,12 @@
             // textBox_pasword
             // 
             this.textBox_pasword.BackColor = System.Drawing.Color.YellowGreen;
-            this.textBox_pasword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_pasword.Font = new System.Drawing.Font("Comic Sans MS", 9.75F);
             this.textBox_pasword.Location = new System.Drawing.Point(174, 132);
             this.textBox_pasword.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_pasword.Name = "textBox_pasword";
             this.textBox_pasword.PasswordChar = '*';
-            this.textBox_pasword.Size = new System.Drawing.Size(201, 26);
+            this.textBox_pasword.Size = new System.Drawing.Size(201, 30);
             this.textBox_pasword.TabIndex = 7;
             this.textBox_pasword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cheking_result);
             this.textBox_pasword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lock_spacebar);
@@ -52,11 +52,11 @@
             // textBox_login
             // 
             this.textBox_login.BackColor = System.Drawing.Color.YellowGreen;
-            this.textBox_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_login.Font = new System.Drawing.Font("Comic Sans MS", 9.75F);
             this.textBox_login.Location = new System.Drawing.Point(174, 93);
             this.textBox_login.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_login.Name = "textBox_login";
-            this.textBox_login.Size = new System.Drawing.Size(201, 26);
+            this.textBox_login.Size = new System.Drawing.Size(201, 30);
             this.textBox_login.TabIndex = 6;
             this.textBox_login.KeyDown += new System.Windows.Forms.KeyEventHandler(this.transfer_cursor_enter);
             this.textBox_login.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lock_spacebar);
@@ -64,28 +64,28 @@
             // label_pasword
             // 
             this.label_pasword.AutoSize = true;
-            this.label_pasword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_pasword.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.label_pasword.Location = new System.Drawing.Point(79, 134);
             this.label_pasword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_pasword.Name = "label_pasword";
-            this.label_pasword.Size = new System.Drawing.Size(84, 20);
+            this.label_pasword.Size = new System.Drawing.Size(81, 25);
             this.label_pasword.TabIndex = 5;
             this.label_pasword.Text = "Пароль:";
             // 
             // label_login
             // 
             this.label_login.AutoSize = true;
-            this.label_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_login.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.label_login.Location = new System.Drawing.Point(79, 94);
             this.label_login.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_login.Name = "label_login";
-            this.label_login.Size = new System.Drawing.Size(70, 20);
+            this.label_login.Size = new System.Drawing.Size(71, 25);
             this.label_login.TabIndex = 4;
             this.label_login.Text = "Логин:";
             // 
             // button_registration
             // 
-            this.button_registration.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_registration.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.button_registration.Location = new System.Drawing.Point(71, 192);
             this.button_registration.Margin = new System.Windows.Forms.Padding(4);
             this.button_registration.Name = "button_registration";
@@ -97,7 +97,7 @@
             // 
             // button_cancel
             // 
-            this.button_cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_cancel.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.button_cancel.Location = new System.Drawing.Point(250, 192);
             this.button_cancel.Margin = new System.Windows.Forms.Padding(4);
             this.button_cancel.Name = "button_cancel";
